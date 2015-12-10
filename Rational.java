@@ -126,35 +126,25 @@ public class Rational implements Comparable {
 	reduce(this);
     }
 
+    public int compareTo(Object other){
+	if ( other == null){
+	    throw new NullPointerException ( "\ncompareTo() input null");
+	}
 
-    //  returns diff of two Rational objects
-    public int compareTo(Rational a){
-		return num * a.den - den * a.num;
-    }
-	// returns diff of Rational and object?
-	//merges equals and compareTo
-	public int compareTo(Object o){
-		boolean retval = this == o;
-		if (! retval){
-			retval = o instanceof Rational;
-			if (retval)
-				return this.compareTo((Rational)o);
-			else
-				retval = o instanceof Integer || o instanceof Float || o instanceof Double;
-			if (retval){
-				double a = this.floatValue() - (Double) o;
-				if (a < 0)
-					return (int)Math.floor(a);
-				else
-					return (int)Math.floor(a) + 1;
-			}
-			else
-				System.out.println(o + " cannot be compared with " + this);
-			return 0;
-		}
-		return 0;
+
+	if (! ( other instanceof Rational) ){
+	    throw new ClassCastException ( "\ncompareTo() input not a Rational");
 	}
 	
+	if (num * (((Rational)other).den)  ==  den * (((Rational)other).num)){
+	    return 0;
+	}
+	else if (num * (((Rational)other).den)  <  den * (((Rational)other).num)) {
+	    return -1;
+	}
+	return 1;
+    }
+    
     //Copied Tile's structure
     public boolean equals(Object a){
     	//Check for alias

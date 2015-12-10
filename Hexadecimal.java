@@ -3,7 +3,7 @@
 //HW44 -- This or That or Fourteen Other Things
 //2015-12-08
 
-public class Hexadecimal {
+public class Hexadecimal implements Comparable {
 
     public int _decNum;
     public String _hexNum;
@@ -159,10 +159,13 @@ public class Hexadecimal {
       =============================================*/
 
     public int compareTo( Object other ) {
-
-	if (! ( other instanceof Hexadecimal) ) {
-	    throw new ClassCastException ( "\ncompareTo() input not a Hexadecimal");
+	if ( other == null){
+            throw new NullPointerException ( "\ncompareTo() input null");
 	}
+
+	if (! ( other instanceof Hexadecimal) ){
+            throw new ClassCastException ( "\ncompareTo() input not a Hexadecimal");
+        }
 
 	if (((Hexadecimal)other)._decNum == this._decNum){
 	    return 0;
