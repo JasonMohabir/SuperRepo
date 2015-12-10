@@ -19,18 +19,18 @@ public class SuperArray{
 
     //~~~~~INSTANCE VARS~~~~~
     //underlying container, or "core" of this data structure:
-    protected int[] _data;
+    private Comparable[] _data;
 
     //position of last meaningful value
-    protected int _lastPos;
+    private int _lastPos;
 
     //size of this instance of SuperArray
-    protected int _size;
+    private int _size;
 	
     //~~~~~METHODS~~~~~
     //default constructor – initializes 10-item array
     public SuperArray() {
-	_data = new int[10];
+	_data = new Comparable[10];
 	_lastPos = -1;
 	_size = 0;
     }
@@ -51,7 +51,7 @@ public class SuperArray{
 		
     //double capacity of this SuperArray
     private void expand() { 
-	int[] newArr = new int[2 * _data.length];
+	Comparable[] newArr = new Comparable[2 * _data.length];
 	for (int i = 0; i < _lastPos; i++)
 	    newArr[i] = _data[i];
 	_data = newArr;
@@ -65,7 +65,7 @@ public class SuperArray{
 		
     //mutator -- set value at index to newVal, 
     //           return old value at index
-    public int set( int index, int newVal ) { 
+    public int set( int index, Comparable newVal ) { 
 	int temp = _data[index];
 	_data[index] = newVal;
 	return temp;
@@ -73,7 +73,7 @@ public class SuperArray{
 
   // ~~~~~~~~~~~~~~ PHASE II ~~~~~~~~~~~~~~
     //adds an item after the last item
-    public void add( int newVal ) {
+    public void add( Comparable newVal ) {
 	if (_size == _data.length)
 		expand();
 	_data[_size] = newVal;
@@ -83,9 +83,9 @@ public class SuperArray{
 
     //inserts an item at index
     //shifts existing elements to the right
-    public void add( int index, int newVal ) {
+    public void add( int index, Comparable newVal ) {
 	if (index >= _size){
-		//Let's throw an error!
+		//Let's throw an error
 	}
 	if (_size == _data.length)
 		expand();
@@ -108,6 +108,20 @@ public class SuperArray{
 
     //return number of meaningful items in _data
     public int size() {return _size;}
+
+
+
+    //~~~~~~~~~~~~HW 45 Methods~~~~~~~~~~~~~~~~~~~~~
+    public int linSearch(Comparable c){
+	for (int i = index; i < _lastPos; i++)
+	    if (_date[i]).equals(c) {return i;}
+    }
+
+    public boolean isSorted(){
+	boolean retBool = true; 
+	for (int i = index; i < _lastPos; i++)
+    }
+
 
     //main method for testing
     public static void main( String[] args ) 
