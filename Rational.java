@@ -1,33 +1,3 @@
-
-Skip to content
-This repository
-
-    Pull requests
-    Issues
-    Gist
-
-    @UrsaMajor17
-
-5
-0
-
-    0
-
-joel99/Rational_Neighbors
-Code
-Issues 0
-Pull requests 0
-Wiki
-Pulse
-Graphs
-Rational_Neighbors/Rational.java
-b719af4 6 days ago
-@joel99 joel99 Ready for comments
-3 contributors
-@joel99
-@Bayless
-@hyketwig
-176 lines (137 sloc) 3.53 KB
 // Team Neighbors - Joel Ye and Jason Mohabir
 // APCS1 pd10
 // HW41 -- In America, the Driver Sits on the Left
@@ -203,8 +173,3 @@ public class Rational implements Comparable {
     }
 
 }
-
-    Status API Training Shop Blog About Pricing 
-
-    © 2015 GitHub, Inc. Terms Privacy Security Contact Help 
-
