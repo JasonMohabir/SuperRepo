@@ -112,33 +112,44 @@ public class SuperArray{
 
 
     //~~~~~~~~~~~~HW 45 Methods~~~~~~~~~~~~~~~~~~~~~
-    public int linSearch(Comparable c){
-	for (int i = index; i < _lastPos; i++)
-	    if (_date[i]).equals(c) {return i;}
+    public int linSearch(Comparable c) {
+        for(int i = 0; i <= _lastPos; i++) {
+            if(c.compareTo(get(i)) == 0) return i;
+        }
+        return -1;
     }
-
-    public boolean isSorted(){
-	boolean retBool = true; 
-	for (int i = index; i < _lastPos; i++)
+    public boolean isSorted() {
+        for(int i = 1; i <= _lastPos; i++) {
+            if(get(i).compareTo(get(i - 1)) < 0) return false;
+        }
+        return true;
     }
-
 
     //main method for testing
     public static void main( String[] args ) 
     {
-	//testing for interface over implementation
-	SuperArray daemon = new SuperArray();
+	SuperArray a = new SuperArray();
+        System.out.println(a._size);
+        System.out.println(a._lastPos);
+        System.out.println(a);
+        a.expand();
+        System.out.println(a); //same thing                                                                                                                                                      
+        System.out.println(a._lastPos);
+        a.add(new Binary("10010"));
+        System.out.println(a);
+        a.add(new Hexadecimal("7F"));
+        System.out.println(a);
+        a.add(1,new Rational(5,6));
+        System.out.println(a);
+        System.out.println(a.size());
+        System.out.println(a.linSearch(new Rational(36,2))); //0                                                                                                                                 
+        System.out.println(a.linSearch(new Binary("1111111"))); //2                                                                                                                              
+        System.out.println(a.linSearch(new Binary(1))); //-1                                                                                                                                     
+        System.out.println(a.isSorted()); //false                                                                                                                                                
+        a.remove(1);
+        System.out.println(a.isSorted()); //true                                                                                                                                                 
 
-	System.out.println("Printing empty daemon");
-	System.out.println(daemon);
-	for (int i = 0; i < 10; i++){ //error with daemon._data.length
-	    daemon.add(i);
-	}
-	System.out.println("Printing numberified daemon...");
-	System.out.println(daemon);
-	System.out.println("Removing 9th element");
-	daemon.remove(8);
-	System.out.println(daemon);
-	System.out.println(daemon.size());
+
+
     }
 }
